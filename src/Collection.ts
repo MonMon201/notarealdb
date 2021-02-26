@@ -20,26 +20,31 @@ export class Collection<T extends Entity> {
   }
 
   delete(id): void {
+    this.load();
     const index = this.findIndex(id);
     this.entities.splice(index, 1);
     this.save();
   }
 
   get(id: string): T {
+    this.load();
     return this.entities.find((item) => item.id === id);
   }
 
   list(): T[] {
+    this.load();
     return this.entities;
   }
 
   update(entity: T): void {
+    this.load();
     const index = this.findIndex(entity.id);
     this.entities[index] = entity;
     this.save();
   }
 
   private findIndex(id) {
+    this.load();
     const index = this.entities.findIndex((current) => current.id === id);
     if (index === -1) {
       throw new Error(`No ${this.name} found with id "${id}"`);
