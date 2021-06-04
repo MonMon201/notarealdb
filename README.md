@@ -1,3 +1,7 @@
+This package was fetched from https://github.com/mirkonasato/notarealdb
+https://www.npmjs.com/package/notarealdb
+I updated it with a couple of lines, so that before every read/write we update state in memory
+
 # Not a Real DB
 
 A "fake" database for Node.js that stores data in local JSON files, for testing and sample applications.
